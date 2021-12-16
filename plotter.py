@@ -16,7 +16,7 @@ def master(ntemp,arrType,usedAlgos):
     algos = [mariuSort,quickSort,mergeSort,bubbleSort,quick3,selectionSort]
     chosenString = usedAlgos
     chosen = methodConvert(usedAlgos)
-
+    print(chosen)
     data = {
         'Mariusort': [],
         'Quicksort': [],
@@ -42,6 +42,7 @@ def master(ntemp,arrType,usedAlgos):
         for j in range(1,11):
             data[x].append(getTime(a,j*step,arrType))
             dataY[x].append(j*step)
+            print(x)
     if 'Mariusort'      in usedAlgos: ax.plot(dataY['Mariusort'], data['Mariusort'], label = "MariuSort")
     if 'Quicksort'      in usedAlgos: ax.plot(dataY['Quicksort'], data['Quicksort'], label = "QuickSort")
     if 'Mergesort'      in usedAlgos: ax.plot(dataY['Mergesort'], data['Mergesort'], label = "MergeSort")
@@ -59,22 +60,24 @@ def master(ntemp,arrType,usedAlgos):
 
 def methodConvert(usedAlgos):
     methods = []
-    if 'Bubblesort' in usedAlgos: methods.append(bubbleSort)
-    if 'Mergesort' in usedAlgos: methods.append(mergeSort)
-    if 'Quicksort' in usedAlgos: methods.append(quickSort)
-    if 'Quick3' in usedAlgos: methods.append(quick3)
-    if 'Mariusort' in usedAlgos: methods.append(mariuSort)
-    if 'Selectionsort' in usedAlgos: methods.append(selectionSort)
+    for i in range(len(usedAlgos)):
+        if 'Bubblesort' == usedAlgos[i]: methods.append(bubbleSort)
+        if 'Mergesort' == usedAlgos[i]: methods.append(mergeSort)
+        if 'Quicksort' == usedAlgos[i]: methods.append(quickSort)
+        if 'Quick3' == usedAlgos[i]: methods.append(quick3)
+        if 'Mariusort' == usedAlgos[i]: methods.append(mariuSort)
+        if 'Selectionsort' == usedAlgos[i]: methods.append(selectionSort)
     return methods
 
 def stringConvert(chosen):
     methods = []
-    if bubbleSort in chosen: methods.append('Bubblesort')
-    if mergeSort in chosen: methods.append('Mergesort')
-    if quickSort in chosen: methods.append('Quicksort')
-    if quick3 in chosen: methods.append('Quick3')
-    if mariuSort in chosen: methods.append('Mariusort')
-    if selectionSort in chosen: methods.append('Selectionsort')
+    for i in range(len(chosen)):
+        if bubbleSort == chosen[i]: methods.append('Bubblesort')
+        if mergeSort == chosen[i]: methods.append('Mergesort')
+        if quickSort == chosen[i]: methods.append('Quicksort')
+        if quick3 == chosen[i]: methods.append('Quick3')
+        if mariuSort == chosen[i]: methods.append('Mariusort')
+        if selectionSort == chosen[i]: methods.append('Selectionsort')
     return methods
 
 def getIndex(a,n):

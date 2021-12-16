@@ -3,7 +3,7 @@ import random
 def genArr(iterations,arrType):
     if arrType == 'Random':
         return randomArr(iterations)
-    elif arrType == 'Reverse':
+    elif arrType == 'Reverse Order':
         return reverseArr(iterations)
     elif arrType == 'Few Uniques':
         return fewUniqueArr(iterations)
